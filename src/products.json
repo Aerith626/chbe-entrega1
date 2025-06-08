@@ -1,18 +1,6 @@
 [
   {
     "id": 1,
-    "title": "Gorro",
-    "description": "Gorro de invierno",
-    "price": 7000
-  },
-  {
-    "id": 2,
-    "title": "Polerón",
-    "description": "Polerón marca Aliodas",
-    "price": 20000
-  },
-  {
-    "id": 3,
     "code": "a3c88607-d019-48b4-b13c-06959d82a379",
     "title": "Chaqueta",
     "description": "Chaqueta deportiva",
@@ -23,13 +11,24 @@
     "thumbnails": ""
   },
   {
-    "id": 4,
-    "code": "385be46f-053c-4225-82a1-dd3205576d38",
+    "id": 2,
+    "code": "f50bf94d-484e-4822-9ad3-e364769a2cda",
     "title": "Zapatillas",
     "description": "Zapatillas deportivas",
-    "price": 400,
+    "price": 500,
     "status": true,
-    "stock": 2,
+    "stock": 3,
+    "category": "Calzados",
+    "thumbnails": ""
+  },
+  {
+    "id": 3,
+    "code": "f6d67ab9-3d7e-4086-a8d2-fa3186e5821a",
+    "title": "Zapatillas",
+    "description": "Zapatillas marca Nike",
+    "price": 7000,
+    "status": true,
+    "stock": 3,
     "category": "Calzados",
     "thumbnails": ""
   }
