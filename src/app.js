@@ -22,6 +22,16 @@ app.get("/api/products", async (req, res) => {
 	}
 });
 
+app.get("/api/products/:pid", async (req, res) => {
+	try {
+		const pid = req.params.pid;
+		const product = await productManager.getProductById(pid);
+		res.status(200).json({status: "success", product});
+	} catch (error) {
+		res.status(500).status(200).json({status: "error", message: "Error obteniendo el producto" });
+	}
+});
+
 app.delete("/api/products/:pid", async (req, res) => {
 	try {
 		const pid = req.params.pid;		
@@ -32,9 +42,25 @@ app.delete("/api/products/:pid", async (req, res) => {
 	}
 });
 
+const requiredFields = [
+	"title",
+	"description",
+	"price",
+	"status",
+	"stock",
+	"category",
+	"thumbnails"
+];
+function checkProductFields(body) {
+	return requiredFields.every(field => body.hasOwnProperty(field));
+}
+
 app.post("/api/products/", async (req, res) => {
 	try {
 		const newProduct = req.body;
+		if (!checkProductFields(newProduct)) {
+			return(res.status(400).json({status: "error", message: "Faltan campos requeridos"}))
+		}
 		const products = await productManager.addProduct(newProduct);
 		res.status(200).json({status: "success", products})
 	} catch (error) {
@@ -43,6 +69,7 @@ app.post("/api/products/", async (req, res) => {
 });
 
 app.put("/api/products/:pid", async (req, res) => {
+	
 	try {
 		const pid = req.params.pid;
 		const updatedProduct = req.body;

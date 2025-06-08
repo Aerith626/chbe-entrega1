@@ -12,14 +12,25 @@
     "price": 20000
   },
   {
-	"id": 3,
-	"title": "Remera",
-	"description": "Remera blanca",
-	"code": "generar con UUID",
-	"price": 10000,
-	"status": true,
-	"stock": 2,
-	"category": "Remeras",
-	"thumbnails": ""
+    "id": 3,
+    "code": "a3c88607-d019-48b4-b13c-06959d82a379",
+    "title": "Chaqueta",
+    "description": "Chaqueta deportiva",
+    "price": 300,
+    "status": true,
+    "stock": 3,
+    "category": "Chaquetas",
+    "thumbnails": ""
+  },
+  {
+    "id": 4,
+    "code": "385be46f-053c-4225-82a1-dd3205576d38",
+    "title": "Zapatillas",
+    "description": "Zapatillas deportivas",
+    "price": 400,
+    "status": true,
+    "stock": 2,
+    "category": "Calzados",
+    "thumbnails": ""
   }
 ]

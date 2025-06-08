@@ -1,4 +1,5 @@
 import fs from "fs";
+import {v4 as uuidv4} from 'uuid';
 
 class ProductManager {
 	constructor(pathToFile) {
@@ -20,7 +21,7 @@ class ProductManager {
 			const products = JSON.parse(fileData);
 	
 			const newId = this.generateNewId(products);
-			const product = {id: newId, ...newProduct};
+			const product = {id: newId, code: uuidv4(), ...newProduct};
 			products.push(product);
 	
 			// Guardar info en archivo
