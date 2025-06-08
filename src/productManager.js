@@ -1,8 +1,8 @@
 import fs from "fs";
 
 class ProductManager {
-	constructor(pathFile) {
-		this.filePath = pathFile;
+	constructor(pathToFile) {
+		this.filePath = pathToFile;
 	}
 
 	generateNewId(products) {
@@ -13,6 +13,7 @@ class ProductManager {
 		}
 	}
 
+	// TODO: agregar UUID autogenerado
 	async addProduct(newProduct) {
 		try {
 			const fileData = await fs.promises.readFile(this.filePath, "utf-8");
