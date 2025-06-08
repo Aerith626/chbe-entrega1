@@ -1,0 +1,25 @@
+[
+  {
+    "id": 2,
+    "title": "Gorro",
+    "description": "Gorro de invierno",
+    "price": 7000
+  },
+  {
+    "id": 3,
+    "title": "Polerón",
+    "description": "Polerón marca Aliodas",
+    "price": 20000
+  },
+  {
+	"id": 4,
+	"title": "Remera",
+	"description": "Remera blanca",
+	"code": "generar con UUID",
+	"price": 10000,
+	"status": true,
+	"stock": 2,
+	"category": "Remeras",
+	"thumbnails": ""
+  }
+]
