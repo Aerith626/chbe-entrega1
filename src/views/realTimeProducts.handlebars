@@ -1,0 +1,78 @@
+<h2>Agregar producto</h2>
+
+<form id="addProductForm" class="row mb-4">
+	<div class="col-md-4 col-lg-3">
+		<div class="mb-3">
+			<label for="" class="form-label">Nombre</label>
+			<input type="text" name="title" class="form-control" placeholder="Nombre del producto" aria-describedby="emailHelp" required>
+		</div>
+	</div>
+	<div class="col-md-4 col-lg-3">
+		<div class="mb-3">
+			<label for="" class="form-label">Categoría</label>
+			<select name="category" class="form-select" required>
+				<option value="sin categoria">Sin categoría</option>
+				<option value="ropa">Ropa</option>
+				<option value="mercaderia">Mercadería</option>
+				<option value="tecnologia">Tecnología</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="col-md-4 col-lg-3">
+		<div class="mb-3">
+			<label for="" class="form-label">Precio</label>
+			<input type="number" min="0" step="1" name="price" class="form-control" placeholder="Precio del producto" required>
+		</div>
+	</div>
+	<div class="col-md-4 col-lg-3">
+		<div class="mb-3">
+			<label for="" class="form-label">Stock</label>
+			<input type="number" min="0" step="1" name="stock" class="form-control" placeholder="Cantidad" required>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="mb-3">
+			<label for="" class="form-label">Descripción</label>
+			<textarea name="description" rows="3" class="form-control" placeholder="Descripción del producto" required></textarea>
+		</div>
+	</div>
+	
+	<div class="col-12"><button type="submit" class="ms-auto d-block btn btn-primary">Agregar producto</button></div>
+</form>
+<hr>
+<h2>Productos</h2>
+<div id="productContainer">
+	<div class="alert alert-warning" {{#if products.length}}style="display: none"{{/if}} id="noProductsAlert">No se encontraron productos</div>
+	{{#if products.length}}
+	<div class="row gy-4" id="productList">
+		{{#each products}}
+		<div class="col-md-6 col-lg-4" id="product-{{this.id}}">
+			<div class="card h-100">
+				<div class="card-body">
+					<div class="d-flex align-items-center justify-content-between">
+						<small class="text-uppercase text-body-tertiary fw-semibold">{{ this.category }}</small>
+						<small class="text-body-tertiary ">{{#if this.stock }}{{this.stock}} en stock{{else}}Sin stock{{/if}}</small>
+					</div>
+					<h4 class="card-title text-body-secondary">{{ this.title }}</h4>
+					<p class="card-text mb-1">{{ this.description }}</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<span class="fs-3 text-body-secondary fw-semibold">{{#if this.price}}${{ this.price }}{{else}}Gratis{{/if}}</span>
+						<button class="btn btn-danger btn-sm btn-delete" data-del="{{this.id}}">Eliminar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	{{else}}
+		{{#if error}}
+		<div class="alert alert-danger">{{ error }}</div>
+		{{/if}}
+	{{/if}}
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+
+

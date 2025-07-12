@@ -1,6 +1,6 @@
 import FileManager from './fileManager.js';
 
-class CartsManager {
+class CartManager {
 	constructor(pathToFile) {
 		this.filePath = pathToFile;
 	}
@@ -82,4 +82,4 @@ class CartsManager {
 	}
 }
 
-export default CartsManager;
+export default CartManager;

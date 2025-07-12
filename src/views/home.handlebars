@@ -1,0 +1,29 @@
+<h2>Listado de productos</h2>
+
+{{#if products.length}}
+<div class="row gy-4">
+	{{#each products}}
+	<div class="col-md-6 col-lg-4" id="product-{{this.id}}">
+		<div class="card h-100">
+			<div class="card-body">
+				<div class="d-flex align-items-center justify-content-between">
+					<small class="text-uppercase text-body-tertiary fw-semibold">{{ this.category }}</small>
+					<small class="text-body-tertiary ">{{#if this.stock }}{{this.stock}} en stock{{else}}Sin stock{{/if}}</small>
+				</div>
+				<h4 class="card-title text-body-secondary">{{ this.title }}</h4>
+				<p class="card-text mb-1">{{ this.description }}</p>
+					<span class="fs-3 text-body-secondary fw-semibold">{{#if this.price}}${{ this.price }}{{else}}Gratis{{/if}}</span>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{else}}
+
+{{#if error}}
+<div class="alert alert-danger">{{ error }}</div>
+{{else}}
+<div class="alert alert-warning">No se encontraron productos</div>
+{{/if}}
+
+{{/if}}

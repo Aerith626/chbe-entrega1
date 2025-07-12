@@ -1,7 +1,6 @@
 import {v4 as uuidv4} from 'uuid';
 import FileManager from './fileManager.js';
 
-
 class ProductManager {
 	constructor(pathToFile) {
 		this.filePath = pathToFile;
@@ -27,7 +26,7 @@ class ProductManager {
 			products.push(product);
 
 			await FileManager.writeToFile(this.filePath, products);
-			return products;
+			return product;
 		} catch (error) {
 			throw new Error("Error al agregar el producto " + error.message);
 		}
@@ -50,7 +49,6 @@ class ProductManager {
 
 			const productById = products.find(product => product.id === parseInt(productId));
 			if (!productById) throw new Error("Producto con id " + productId + " no encontrado" );
-			return productById;
 		} catch (error) {
 			throw new Error(error.message);
 		}
